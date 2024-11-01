@@ -4,7 +4,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.rolldicekotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
