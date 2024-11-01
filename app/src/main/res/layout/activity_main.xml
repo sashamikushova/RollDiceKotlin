@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/row1_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/row2_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- First row: 3 dice images, with style applied -->
+    <ImageView
+        style="@style/DiceStyle"
+        android:id="@+id/imageView1"
+        android:src="@drawable/one"
+        app:layout_constraintTop_toTopOf="@id/row1_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2" />
+
+    <ImageView
+        style="@style/DiceStyle"
+        android:id="@+id/imageView2"
+        android:src="@drawable/two"
+        app:layout_constraintTop_toTopOf="@id/row1_guideline"
+        app:layout_constraintStart_toEndOf="@+id/imageView1"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3" />
+
+    <ImageView
+        style="@style/DiceStyle"
+        android:id="@+id/imageView3"
+        android:src="@drawable/three"
+        app:layout_constraintTop_toTopOf="@id/row1_guideline"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        style="@style/DiceStyle"
+        android:id="@+id/imageView4"
+        android:src="@drawable/four"
+        app:layout_constraintTop_toTopOf="@id/row2_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5" />
+
+    <ImageView
+        style="@style/DiceStyle"
+        android:id="@+id/imageView5"
+        android:src="@drawable/five"
+        app:layout_constraintTop_toTopOf="@id/row2_guideline"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="176dp"
+        android:backgroundTint="#F44336"
+        android:text="Roll Dice!"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row2_guideline" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="150dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="176dp"
+        android:backgroundTint="#F44336"
+        android:text="Stop"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@id/row2_guideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
