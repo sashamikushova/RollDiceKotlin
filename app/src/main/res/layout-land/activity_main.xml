@@ -22,7 +22,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.37" />
 
-    <!-- First row: 3 dice images, with style applied -->
+   
 
     <ImageView
         android:id="@+id/imageView1"
@@ -68,7 +68,7 @@
         android:id="@+id/button"
         android:layout_width="150dp"
         android:layout_height="56dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="#F44336"
         android:text="Roll Dice!"
         android:textColor="#FFFFFF"
@@ -80,7 +80,7 @@
         android:id="@+id/button2"
         android:layout_width="150dp"
         android:layout_height="56dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="#F44336"
         android:text="Stop"
         android:textColor="#FFFFFF"
