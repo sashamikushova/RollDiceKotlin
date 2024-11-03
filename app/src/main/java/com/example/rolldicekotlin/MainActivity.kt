@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import android.content.res.Configuration
 import com.example.rolldicekotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,11 +38,15 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             diceViewModel.startRolling()
             handler.post(rollRunnable)
+            binding.button.isEnabled = false
+            binding.button2.isEnabled = true
         }
 
         binding.button2.setOnClickListener {
             diceViewModel.stopRolling()
             handler.removeCallbacks(rollRunnable)
+            binding.button.isEnabled = true
+            binding.button2.isEnabled = false
         }
 
         if (savedInstanceState != null) {
@@ -51,6 +54,8 @@ class MainActivity : AppCompatActivity() {
             if (isRolling) {
                 diceViewModel.startRolling()
                 handler.post(rollRunnable)
+                binding.button.isEnabled = false
+                binding.button2.isEnabled = true
             }
         }
     }
@@ -63,9 +68,5 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacks(rollRunnable)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
     }
 }
