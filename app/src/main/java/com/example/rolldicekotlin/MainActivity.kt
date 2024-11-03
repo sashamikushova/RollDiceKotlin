@@ -1,4 +1,5 @@
 package com.example.rolldicekotlin
+
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -35,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             binding.imageView5.setImageResource(diceImages[4])
         }
 
-
         binding.button.setOnClickListener {
             diceViewModel.startRolling()
             handler.post(rollRunnable)
@@ -45,19 +45,27 @@ class MainActivity : AppCompatActivity() {
             diceViewModel.stopRolling()
             handler.removeCallbacks(rollRunnable)
         }
+
+        if (savedInstanceState != null) {
+            val isRolling = savedInstanceState.getBoolean("isRolling", false)
+            if (isRolling) {
+                diceViewModel.startRolling()
+                handler.post(rollRunnable)
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("isRolling", diceViewModel.isRolling.value == true)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacks(rollRunnable)
     }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-        }
     }
 }
